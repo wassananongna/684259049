@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #880e4f;
+}
+
+.game-container {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 15px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0s 0.6s, opacity 0.6s, transform 0.6s;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-front {
+    background-color: #f06292;
+    transform: rotateY(180deg);
+    border: 2px solid white;
+}
+
+.card-back {
+    background: linear-gradient(45deg, #f48fb1, #f06292);
+    color: white;
+    font-size: 50px;
+    border: 2px solid white;
+}
+
+#reset-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+}
+
+#reset-btn:hover {
+    background-color: #ad1457;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(216, 27, 96, 0.4);
+}
+
+#reset-btn:active {
+    transform: translateY(0);
+}
